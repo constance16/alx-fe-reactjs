@@ -1,3 +1,4 @@
+// src/components/Home.jsx
 function Home() {
     return (
       <div style={{ padding: '20px' }}>
@@ -6,5 +7,6 @@ function Home() {
       </div>
     );
   }
-
+  
   export default Home;
+  
