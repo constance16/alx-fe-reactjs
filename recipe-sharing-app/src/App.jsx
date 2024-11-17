@@ -10,11 +10,16 @@ import RecipeList from './components/RecipeList';
 import AddRecipeForm from './components/AddRecipeForm';
 import RecipeDetails from './components/RecipeDetails';
 import SearchBar from './components/SearchBar';
+import FavoritesList from './components/FavoritesList';
+import RecommendationsList from './components/RecommendationsList';
+
 
 const App = () => {
   return (
     <div style={{ padding: '20px' }}>
       <h1>Recipe Sharing Application</h1>
+      <FavoritesList />
+      <RecommendationsList />
       <SearchBar />
       <RecipeList />
       <AddRecipeForm />
