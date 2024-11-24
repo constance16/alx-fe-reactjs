@@ -1,69 +1,73 @@
 import React, { useState } from "react";
+import React, { useState } from 'react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 
 const RegistrationForm = () => {
   const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
+    username: '',
+    email: '',
+    password: ''
   });
-
-  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const validate = () => {
-    const newErrors = {};
-    if (!formData.username) newErrors.username = "Username is required.";
-    if (!formData.email) newErrors.email = "Email is required.";
-    if (!formData.password) newErrors.password = "Password is required.";
-    return newErrors;
+    setFormData(prevData => ({
+      ...prevData,
+      [name]: value
+    }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newErrors = validate();
-    if (Object.keys(newErrors).length === 0) {
-      console.log("Form submitted:", formData);
-      alert("User registered successfully!");
-    } else {
-      setErrors(newErrors);
-    }
+    // Handle form submission here
+    console.log('Form submitted:', formData);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Username:</label>
-        <input
-          type="text"
-          name="username"
-          value={formData.username} // <-- Bind value here
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label>Email:</label>
-        <input
-          type="email"
-          name="email"
-          value={formData.email} // <-- Bind value here
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={formData.password} // <-- Bind value here
-          onChange={handleChange}
-        />
-      </div>
-      <button type="submit">Register</button>
-    </form>
+    <Card className="w-full max-w-md mx-auto">
+      <CardHeader>
+        <CardTitle>Register</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <Input
+              type="text"
+              name="username"
+              placeholder="Username"
+              value={formData.username}
+              onChange={handleChange}
+              className="w-full"
+            />
+          </div>
+          <div>
+            <Input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+              className="w-full"
+            />
+          </div>
+          <div>
+            <Input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handleChange}
+              className="w-full"
+            />
+          </div>
+          <Button type="submit" className="w-full">
+            Register
+          </Button>
+        </form>
+      </CardContent>
+    </Card>
   );
 };
 
