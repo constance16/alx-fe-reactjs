@@ -40,30 +40,27 @@ const RegistrationForm = () => {
         <input
           type="text"
           name="username"
-          value={formData.username}
+          value={formData.username} // <-- Bind value here
           onChange={handleChange}
         />
-        {errors.username && <p>{errors.username}</p>}
       </div>
       <div>
         <label>Email:</label>
         <input
           type="email"
           name="email"
-          value={formData.email}
+          value={formData.email} // <-- Bind value here
           onChange={handleChange}
         />
-        {errors.email && <p>{errors.email}</p>}
       </div>
       <div>
         <label>Password:</label>
         <input
           type="password"
           name="password"
-          value={formData.password}
+          value={formData.password} // <-- Bind value here
           onChange={handleChange}
         />
-        {errors.password && <p>{errors.password}</p>}
       </div>
       <button type="submit">Register</button>
     </form>
