@@ -14,7 +14,7 @@ const { data, isLoading, isError } = useQuery('posts', fetchPosts, {
   });  
 
 const PostsComponent = () => {
-  const { data, isLoading, isError, refetch } = useQuery('posts', fetchPosts);
+  const { data, isLoading, isError, error, refetch } = useQuery('posts', fetchPosts);
 
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>Error fetching posts</p>;
