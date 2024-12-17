@@ -7,6 +7,26 @@ const Search = () => {
   const [loading, setLoading] = useState(false); // Loading state
   const [error, setError] = useState(''); // Error state
 
+    if (!username.trim()) {
+      setError("Please enter a GitHub username.");
+      return;
+    }
+  
+    setLoading(true);
+    setError('');
+    setUserData(null);
+  
+    try {
+      const data = fetchUserData(username);
+      setUserData(data);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -59,6 +79,6 @@ const Search = () => {
       )}
     </div>
   );
-};
+  ;
 
 export default Search;
