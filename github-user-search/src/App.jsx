@@ -3,6 +3,18 @@ import Search from "./components/Search";
 import UserCard from "./components/UserCard";
 import "./App.css";
 
+import React from 'react';
+import Search from './components/Search';
+
+function App() {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <Search />
+    </div>
+  );
+}
+
+
 function App() {
   const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(false);

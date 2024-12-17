@@ -1,5 +1,15 @@
-export const fetchUserData = async (username, location, minRepos, page = 1) => {
-    const queryParams = [];
+import axios from 'axios';
+
+export const fetchUserData = async (username) => {
+  const baseURL = `https://api.github.com/users/${username}`;
+  try {
+    const response = await axios.get(baseURL);
+    return response.data; // Return user data
+  } catch (error) {
+    throw new Error('User not found');
+  }
+};
+
     
     if (username) {
       queryParams.push(`in:login ${username}`);
@@ -24,4 +34,6 @@ export const fetchUserData = async (username, location, minRepos, page = 1) => {
       console.error("Error fetching data:", error);
       return null;
     }
-  };
+  ;
+
+  
