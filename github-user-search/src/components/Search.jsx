@@ -25,7 +25,7 @@ const Search = () => {
       setUserData(data);
     } catch (err) {
       if (err.message === "User not found") {
-        setError("Looks like we can't find the user.");
+        setError("Looks like we cant find the user.");
       } else {
         setError("Something went wrong. Please try again.");
       }
